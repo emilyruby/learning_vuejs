@@ -5,20 +5,33 @@
     <title>stupid practice</title>
   </head>
   <body>
-    <div id="app">
-      <input v-model="name"></input>
-      {{name}}
-    </div>
-  </body>
-  <script src="https://unpkg.com/vue"></script>
-  <script type="text/javascript">
-    var data = {
-      name : "Emily Mears",
-    }
 
-    new Vue({
-      el: "#app",
-      data: data
+    <div id="app">
+      <hello-world></hello-world>
+    </div>
+
+  </body>
+
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+
+  <script type="text/javascript">
+
+    const names = "Emily";
+
+    Vue.component('hello-world', {
+      template: '<div>\
+        <input v-model="name"></input>\
+        <p>{{name}}</p>\
+      </div>',
+      data: function() {
+        return {
+          name = names
+        }
+      }
+    })
+
+    var app = new Vue({
+      el: "#app"
     });
   </script>
 </html>
